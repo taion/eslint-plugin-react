@@ -1398,6 +1398,23 @@ ruleTester.run('prop-types', rule, {
         '}'
       ].join('\n'),
       parser: 'babel-eslint'
+    }, {
+      code: [
+        'class Hello extends Component {',
+        '  async onSelect({ name }) {',
+        '    return null;',
+        '  }',
+        '  render() {',
+        '    return <Greeting onSelect={this.onSelect} />;',
+        '  }',
+        '}'
+      ].join('\n'),
+      parserOptions: {
+        ecmaVersion: 8,
+        ecmaFeatures: {
+          jsx: true
+        }
+      }
     }
   ],
 
